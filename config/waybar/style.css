@@ -35,7 +35,7 @@ tooltip label {
 #battery.critical { color: red; }
 
 
-#cpu, #memory, #bluetooth, #network, #clock, #pulseaudio, #language{
+#cpu, #memory, #bluetooth, #network, #clock, #pulseaudio, #language, #temperature{
     background-color: #adadad;
     color: black;
 }
