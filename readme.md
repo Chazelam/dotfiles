@@ -1,10 +1,10 @@
 # todo
-- [ ] Автоподключение к известным wifi сетям
-- [ ] Уведомления
-- [ ] Буфер обмена
+- [x] Автоподключение к известным wifi сетям
+- [x] Уведомления
+- [x] Буфер обмена
 - [ ] Hypershot
-- [ ] tofi/fuzzel
-	- [ ] Попутно настроить иконки
+- [x] fuzzel
+	- [ ] Включить иконки ?
 - [ ] login screen
 - [ ] Поменять курсор
 - [ ] Waybar
@@ -51,6 +51,13 @@ sudo pacman install
 ```bash
 # Удалите существующие конфиги (если они есть)
 rm -rf ~/.config/fastfetch ~/.config/hypr ~/.config/kitty ~/.config/waybar
+
+rm -rf ~/.config/mako
+ln -s ~/dotfiles/config/mako ~/.config/mako
+
+rm -rf ~/.config/fuzzel
+ln -s ~/dotfiles/config/fuzzel ~/.config/fuzzel
+
 
 # Создайте симлинки для каждой папки:
 ln -s ~/dotfiles/config/fastfetch ~/.config/fastfetch

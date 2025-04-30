@@ -31,7 +31,14 @@ tooltip label {
     background-color: #adadad;
     color: black;
 }
-#battery.warning { color: orange; }
+#battery.warning { 
+    color: #ffc857;
+    text-shadow: 
+        -1px -1px 0 black,
+         1px -1px 0 black,
+        -1px  1px 0 black,
+         1px  1px 0 black;
+}
 #battery.critical { color: red; }
 
 
@@ -39,6 +46,11 @@ tooltip label {
     background-color: #adadad;
     color: black;
 }
+
+/* #cpu{
+    text-align: right;
+
+} */
 
 #workspaces button{
     background-color: #adadad;

@@ -92,7 +92,9 @@
     },
     "cpu": {
         "interval": 1,
-        "format": "{usage}% - {avg_frequency} GHz "
+        "format": "{usage}% - {avg_frequency:.2f} GHz ",
+        "align": 1, // right align
+        "min-length": 14
     },
 
 
