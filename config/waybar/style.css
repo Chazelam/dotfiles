@@ -59,10 +59,7 @@ tooltip label {
     border-radius: 15px;
     padding: 0 5px;
     margin: 1px;
-    transition: 
-        padding 0.2s ease-in-out
-        /* background-color 0.2s ease-in-out, */
-        /* color 0.2s ease-in-out; */
+    transition: padding 0.2s ease-in-out
 }
 #workspaces button.active{
     padding: 0 15px;
