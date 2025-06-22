@@ -54,13 +54,15 @@ tooltip label {
 
 #workspaces button{
     background-color: #adadad;
-    color: #adadad;
+    color: #000000;
     border: 1px solid black;
     border-radius: 15px;
-    padding: 0 5px;
+    padding: 0 3px;
     margin: 1px;
     transition: padding 0.2s ease-in-out
 }
+
+
 #workspaces button.active{
     padding: 0 15px;
 }
