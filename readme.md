@@ -74,5 +74,8 @@ ln -s ~/dotfiles/config/waybar ~/.config/waybar
 
 rm ~/.zshrc  # Если файл уже существует
 ln -s ~/dotfiles/zshrc ~/.zshrc
+
+# hyprpanel
+sudo dnf install wireplumber upower libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth power-profiles-daemon gvfs nodejs gtksourceview3 libsoup3
 ```
 

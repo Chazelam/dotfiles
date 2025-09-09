@@ -14,6 +14,7 @@ label.module {
 
 window#waybar {
     background: rgba(0, 0, 0, 0);
+    /* margin: 5px; */
 }
 
 tooltip label {
@@ -42,7 +43,7 @@ tooltip label {
 #battery.critical { color: red; }
 
 
-#cpu, #memory, #bluetooth, #network, #clock, #pulseaudio, #language, #temperature{
+#cpu, #memory, #bluetooth, #network, #clock, #pulseaudio, #language, #temperature, #backlight {
     background-color: #adadad;
     color: black;
 }
