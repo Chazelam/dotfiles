@@ -1,37 +1,147 @@
 # todo
-- [x] Автоподключение к известным wifi сетям
-- [x] Уведомления
-- [ч] Буфер обмена
-- [x] Hypershot
-	- [ ] Добавить прямоугольник выделения
-- [x] fuzzel
-	- [ ] Убрать лишние desktop файлы
-	- [ ] Включить иконки ?
+- [x] fish
+- [x] Буфер обмена
 - [ ] login screen
 	- [ ] Без задержки от неверного ввода (Hyprlock - параша)
 	- [ ] Авто выключение экрана и уход в сон
-- [ ] Поменять курсор
-- [ ] Waybar
-	- [x] Добавить температуру CPU
-	- [ ] Микшер звука
-	- [ ] Виджет профилей питания
-	- [ ] Виджет bluetooth
-	- [ ] Виджет wifi 
-	- [ ] Виджет Календаря ?
-- [x] Оформить 2й монитор
-	- [x] Расположение
-	- [x] Раздельный waybar
-	- [x] Раздельное переключение рабочих столов
 
->https://www.reddit.com/r/hyprland/comments/1dc2ux2/i_want_to_start_creating_my_own_guis_for_custom/
+- [ ] Поменять курсор
 - [ ] Меню питания
 	- [ ] Работа кнопки питания
 - [ ] Кастомный fastfetch
-- [ ] Подробно расписать и продумать рабочие столы
-- [ ] Подробно расписать и продумать шорткаты
+- [ ] Офлайн календарь
+---
+
+
+
+
+
+# Установка зависимостей
+## Misc:
+```bash
+sudo dnf install git python fish
+sudo dnf install pavucontrol waybar kitty mako fuzzel fastfetch
+```
+
+
+## Nerd Fonts 0xProto:
+```bash
+curl -L -o 0xProto.zip https://github.com/ryanoasis/nerd-fonts/releases/latest/download/0xProto.zip
+unzip 0xProto.zip -d ~/.local/share/fonts/
+fc-cache -vf ~/.local/share/fonts/
+rm 0xProto.zip
+```
+Проверка
+```bash
+fc-list : family style | grep -i nerd
+```
+
+## Starship
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+## flatpack:
+```bash
+sudo dnf install flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub md.obsidian.Obsidian
+flatpak install flathub org.telegram.desktop
+```
+
+Hyprland:
+```bash
+sudo dnf copr enable solopasha/hyprland
+sudo dnf install hyprland wl-clipboard wayland-devel wayland-protocols-devel hyprlang-devel pango-devel cairo-devel file-devel libglvnd-devel libglvnd-core-devel libjpeg-turbo-devel libwebp-devel libjxl-devel gcc-c++ hyprutils-devel hyprwayland-scanner
+```
+
+[NM GUI](https://github.com/s-adi-dev/nmgui):
+```bash
+sudo curl -L https://github.com/s-adi-dev/nmgui/releases/download/v1.0.0/main.bin -o /usr/bin/nmgui
+sudo chmod +x /usr/bin/nmgui
+curl -sL https://raw.githubusercontent.com/s-adi-dev/nmgui/main/nmgui.desktop | sudo tee /usr/share/applications/nmgui.desktop > /dev/null
+```
+
+[HyprShot GUI](https://github.com/s-adi-dev/hyprshot-gui):
+```bash
+curl -sL https://raw.githubusercontent.com/s-adi-dev/hyprshot-gui/refs/heads/main/src/hyprshot-gui | sudo tee /usr/bin/hyprshot-gui > /dev/null
+sudo chmod +x /usr/bin/hyprshot-gui
+curl -sL https://raw.githubusercontent.com/s-adi-dev/hyprshot-gui/refs/heads/main/src/hyprshot.desktop | sudo tee /usr/share/applications/hyprshot.desktop > /dev/null
+```
+
+NetBird:
+```bash
+curl -fsSL https://pkgs.netbird.io/install.sh | sh
+```
+```bash
+netbird up
+```
+```bash
+netbird down
+```
+
+
+VS Code:
+```bash
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+
+dnf check-update
+sudo dnf install code
+```
+
+# Создание семилинков
+```bash
+# Удалите существующие конфиги (если они есть)
+rm -rf ~/.config/fastfetch ~/.config/hypr ~/.config/kitty ~/.config/waybar
+rm -rf ~/.config/mako
+rm ~/.zshrc
+rm -rf ~/.config/fuzzel
+
+
+# Создайте симлинки для каждой папки:
+ln -s ~/dotfiles/config/fuzzel ~/.config/fuzzel
+ln -s ~/dotfiles/config/mako ~/.config/mako
+ln -s ~/dotfiles/config/fish ~/.config/fish
+ln -s ~/dotfiles/config/fastfetch ~/.config/fastfetch
+ln -s ~/dotfiles/config/hypr ~/.config/hypr
+ln -s ~/dotfiles/config/kitty ~/.config/kitty
+ln -s ~/dotfiles/config/waybar ~/.config/waybar
+
+
+sudo ln -s ~/dotfiles/bin/cliphist /usr/local/bin/cliphist
+```
+
+# Лок частот
+Просмотр информации
+```bash
+cpupower frequency-info
+```
+Необходимо поменять драйвер управленя частотой с `amd_pstate` на `acpi-cpufreq`:
+```bash
+sudo grubby --update-kernel=ALL --args="amd_pstate=disable"
+```
+И перезагрузить систему.
+
+Далее начинает работать: 
+```bash
+sudo cpupower frequency-set -g powersave
+```
+Лочит на 1.6 Ghz
+
+---
+# Later
+- [x] fuzzel
+	- [ ] Убрать лишние desktop файлы
+	- [x] Включить иконки ?
+- [ ] Waybar
+	- [x] Добавить температуру CPU
+	- [x] Микшер звука
+	- [ ] Виджет профилей питания
+	- [ ] Виджет bluetooth
+	- [x] Виджет wifi 
 - [ ] Настроить VS Code / Найти замену
-	- [x] Минимизировать интерфейс
-	- [x] Заменить файловый менеджер
+	- [ ] Минимизировать интерфейс
+	- [ ] Заменить файловый менеджер
 	- [ ] Настроить шорткаты
 - [ ] Настройка браузера
 	- [ ] Выбор
@@ -42,40 +152,3 @@
 	- [ ] Выбор 
 	- [ ] Настройка
 	- [ ] Оформление
-- [ ] Попробовать fish
-
-# Установка зависимостей
-Fedora:
-```bash
-sudo dnf install 
-```
-Arch:
-```bash
-sudo pacman install 
-```
-
-# Создание семилинков
-```bash
-# Удалите существующие конфиги (если они есть)
-rm -rf ~/.config/fastfetch ~/.config/hypr ~/.config/kitty ~/.config/waybar
-
-rm -rf ~/.config/mako
-ln -s ~/dotfiles/config/mako ~/.config/mako
-
-rm -rf ~/.config/fuzzel
-ln -s ~/dotfiles/config/fuzzel ~/.config/fuzzel
-
-
-# Создайте симлинки для каждой папки:
-ln -s ~/dotfiles/config/fastfetch ~/.config/fastfetch
-ln -s ~/dotfiles/config/hypr ~/.config/hypr
-ln -s ~/dotfiles/config/kitty ~/.config/kitty
-ln -s ~/dotfiles/config/waybar ~/.config/waybar
-
-rm ~/.zshrc  # Если файл уже существует
-ln -s ~/dotfiles/zshrc ~/.zshrc
-
-# hyprpanel
-sudo dnf install wireplumber upower libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth power-profiles-daemon gvfs nodejs gtksourceview3 libsoup3
-```
-
