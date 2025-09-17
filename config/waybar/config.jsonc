@@ -93,7 +93,7 @@
     },
     "clock": {
         "interval": 60,
-        "format": "{:%d.%m - %H:%M}",
+        "format": "{:%m %b - %H:%M}",
         "tooltip": false,
         "max-length": 25
     },
