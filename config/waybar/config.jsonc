@@ -93,7 +93,7 @@
     },
     "clock": {
         "interval": 60,
-        "format": "{:%m %b - %H:%M}",
+        "format": "{:%d %b - %H:%M}",
         "tooltip": false,
         "max-length": 25
     },
@@ -109,13 +109,13 @@
         // "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         // "tooltip-format-ethernet": "{ifname} ",
         // "tooltip-format-disconnected": "Disconnected",
-        "on-click": "nmgui",
+        "on-click": "~/dotfiles/bin/iwmenu -l fuzzel",
         "max-length": 50
     },
     "bluetooth": {
         "format": "{status}  : {num_connections}",
-        "format-disabled": "off "
-        // "on-click": 
+        "format-disabled": "off ",
+        "on-click": "~/dotfiles/bin/bzmenu -l fuzzel"
     },
     "cpu": {
         "interval": 1,
@@ -135,7 +135,7 @@
     },
 
     "memory": {
-        "interval": 30,
+        "interval": 5,
         "format": "{}% ",
         "max-length": 10
     },

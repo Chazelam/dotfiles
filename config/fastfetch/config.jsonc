@@ -3,6 +3,7 @@
   "logo": {
         "type": "file",
         "source": "~/dotfiles/config/fastfetch/cachyOS_26x16.txt"
+        // "source": "~/dotfiles/config/fastfetch/2B_smol.txt"
     },
   "modules": [
     "title",

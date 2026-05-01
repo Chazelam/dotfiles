@@ -23,6 +23,8 @@ sudo dnf install git python fish
 sudo dnf install pavucontrol waybar kitty mako fuzzel fastfetch
 ```
 
+git python fish pavucontrol waybar kitty mako fuzzel fastfetch
+
 
 ## Nerd Fonts 0xProto:
 ```bash
@@ -94,14 +96,13 @@ sudo dnf install code
 # Удалите существующие конфиги (если они есть)
 rm -rf ~/.config/fastfetch ~/.config/hypr ~/.config/kitty ~/.config/waybar
 rm -rf ~/.config/mako
-rm ~/.zshrc
 rm -rf ~/.config/fuzzel
+rm -rf ~/.config/fish
 
 
 # Создайте симлинки для каждой папки:
 ln -s ~/dotfiles/config/fuzzel ~/.config/fuzzel
-ln -s ~/dotfiles/config/mako ~/.config/mako
-ln -s ~/dotfiles/config/fish ~/.config/fish
+2ln -s ~/dotfiles/config/fish ~/.config/fish
 ln -s ~/dotfiles/config/fastfetch ~/.config/fastfetch
 ln -s ~/dotfiles/config/hypr ~/.config/hypr
 ln -s ~/dotfiles/config/kitty ~/.config/kitty
