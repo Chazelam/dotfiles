@@ -1,3 +1,4 @@
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     set -U fish_greeting
@@ -9,5 +10,4 @@ if status is-interactive
     alias vpnre='netbird down ; netbird up'
     alias vpnon='netbird up'
     alias vpnoff='netbird down'
-
 end
