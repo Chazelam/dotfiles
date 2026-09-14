@@ -77,14 +77,21 @@ hl.window_rule({
 })
 
 
+
+
+-- Title: Picture-in-Picture
+-- Class: zen
+-- Executable path: /opt/zen-browser-bin/zen-bin
+-- Resolution: 950x1042
+
 -- Picture-in-Picture: float, pin, and position near the top-right corner.
 -- Zen uses the same class for regular browser windows, so the title is
 -- also required to identify the Picture-in-Picture window.
 hl.window_rule({
     name = "picture-in-picture",
     match = {
-        initial_class = "^zen$",
-        initial_title = "^Picture%-in%-Picture$",
+        initial_class = "zen",
+        initial_title = "Picture-in-Picture",
     },
     float = true,
     pin = true,
@@ -92,6 +99,7 @@ hl.window_rule({
         "(monitor_w * 0.695)",
         "(monitor_h * 0.04)",
     },
+    size = { 576, 324 },
 })
 
 
