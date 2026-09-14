@@ -1,0 +1,8 @@
+-- require("config.variables")
+require("config.autostart")
+require("config.appearance")
+require("config.input")
+require("config.animations")
+require("config.window_rules")
+require("config.keybinds")
+require("config.displays")
